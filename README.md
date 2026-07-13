@@ -9,8 +9,15 @@ I build tools for the messy middle of agentic engineering: planning real work, c
 
 ## What I'm building
 
+### Sites
+
 - [ShakedownKit](https://shakedownkit.com/) - Ultralight backpacking gear management.
-- [Agent Swarm](https://github.com/calvinnwq/agent-swarm) - focused swarms of AI agents with one deterministic synthesis back.Many AI agents on the problem. One answer back.
+- [The Unbusy Co](https://theunbusy.co/) - Workflow systems and automation that make work less busy.
+- [ngxcalvin.com](https://ngxcalvin.com/) - My personal site and writing about AI, engineering, decision-making, health, and adventure.
+
+### Open source
+
+- [Agent Swarm](https://github.com/calvinnwq/agent-swarm) - Focused swarms of AI agents with deterministic synthesis: many agents on the problem, one answer back.
 - [Momentum](https://github.com/calvinnwq/momentum) - a TypeScript CLI for durable autonomous repo-work orchestration, local verification, and goal-to-implementation loops.
 - [Skill Suitcase](https://github.com/calvinnwq/skill-suitcase) - read-only planning and packaging for portable agent skills across agent homes and toolchains.
 - [Artshelf](https://github.com/calvinnwq/artshelf) - accountable retention for the temporary files, logs, exports, and evidence that agents leave behind.
