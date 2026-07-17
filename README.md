@@ -44,7 +44,10 @@ Outside the terminal, I’m into mountaineering, hiking, surfing, strength train
 
 ## GitHub activity
 
-[![Calvin's GitHub profile summary](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=calvinnwq&theme=github)](https://github.com/calvinnwq)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile-summary-card-output/github_dark/0-profile-details.svg">
+  <img alt="Calvin's GitHub profile summary" src="./profile-summary-card-output/github/0-profile-details.svg">
+</picture>
 
 <!--
 Here are some ideas to get you started:

@@ -1,0 +1,85 @@
+name: Update profile summary
+
+on:
+  schedule:
+    - cron: "17 18 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-summary-cards
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Generate light profile summary
+        uses: vn7n24fzkq/github-profile-summary-cards@5a2e29efb909f77ce6628e633aaacde7a60eb6eb # v0.11.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: main
+          AUTO_PUSH: false
+          THEME: github
+
+      - name: Preserve light profile summary
+        run: |
+          mkdir -p "$RUNNER_TEMP/profile-summary-cards"
+          cp profile-summary-card-output/github/0-profile-details.svg \
+            "$RUNNER_TEMP/profile-summary-cards/light.svg"
+
+      - name: Generate dark profile summary
+        uses: vn7n24fzkq/github-profile-summary-cards@5a2e29efb909f77ce6628e633aaacde7a60eb6eb # v0.11.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: main
+          AUTO_PUSH: false
+          THEME: github_dark
+
+      - name: Keep responsive profile summaries
+        run: |
+          cp profile-summary-card-output/github_dark/0-profile-details.svg \
+            "$RUNNER_TEMP/profile-summary-cards/dark.svg"
+          rm -rf profile-summary-card-output
+          mkdir -p profile-summary-card-output/github profile-summary-card-output/github_dark
+          cp "$RUNNER_TEMP/profile-summary-cards/light.svg" \
+            profile-summary-card-output/github/0-profile-details.svg
+          cp "$RUNNER_TEMP/profile-summary-cards/dark.svg" \
+            profile-summary-card-output/github_dark/0-profile-details.svg
+
+      - name: Validate generated SVGs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree
+
+          paths = [
+              Path("profile-summary-card-output/github/0-profile-details.svg"),
+              Path("profile-summary-card-output/github_dark/0-profile-details.svg"),
+          ]
+          for path in paths:
+              content = path.read_text(encoding="utf-8")
+              if "ERROR!!!" in content or "temporarily unavailable" in content:
+                  raise SystemExit(f"Refusing to publish an error card: {path}")
+              root = ElementTree.fromstring(content)
+              if not root.tag.endswith("svg"):
+                  raise SystemExit(f"Generated file is not SVG: {path}")
+          PY
+
+      - name: Commit updated summaries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-summary-card-output
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update profile summary cards"
+          git push
