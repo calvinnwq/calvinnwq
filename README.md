@@ -5,7 +5,10 @@ Senior SWE @ Atlassian, based in Sydney 🇦🇺, originally from Singapore 🇸
 
 I build tools for the messy middle of agentic engineering: planning real work, coordinating specialist agents, validating changes, preserving useful evidence, and keeping humans in the loop without slowing everything down.
 
-[Blog](https://ngxcalvin.com/) · [X](https://x.com/calvinnwq) · [LinkedIn](https://www.linkedin.com/in/calvinnwq/)
+[![Blog](https://img.shields.io/badge/Blog-ngxcalvin.com-181717?style=flat-square&logo=googlechrome&logoColor=white)](https://ngxcalvin.com/)
+[![X](https://img.shields.io/badge/X-@calvinnwq-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/calvinnwq)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/calvinnwq/)
+![Profile views](https://hits.sh/github.com/calvinnwq.svg?style=flat-square&label=profile%20views&color=0A66C2)
 
 ## What I'm building
 
@@ -38,6 +41,10 @@ I like tools that are small, sharp, and honest about their contract.
 Good agent tooling should leave a trail: what it planned, what it changed, what passed, what failed, what needs a human, and how to roll back. The interesting work is not just making agents faster. It is making them dependable enough to trust with real workflows.
 
 Outside the terminal, I’m into mountaineering, hiking, surfing, strength training, and the kind of gear nerdery that makes pack weight spreadsheets feel completely reasonable.
+
+## GitHub activity
+
+[![Calvin's GitHub profile summary](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=calvinnwq&theme=github)](https://github.com/calvinnwq)
 
 <!--
 Here are some ideas to get you started:
