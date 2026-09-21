@@ -1,7 +1,8 @@
 ## Hi, I'm Calvin 👋
 
 AI-native builder & problem solver.
-Senior SWE @ Atlassian, based in Sydney 🇦🇺, originally from Singapore 🇸🇬.
+Engineer at Nous Research, based in Sydney 🇦🇺, originally from Singapore 🇸🇬.
+Previously, I spent 10+ years as a software engineer at Atlassian.
 
 I build tools for the messy middle of agentic engineering: planning real work, coordinating specialist agents, validating changes, preserving useful evidence, and keeping humans in the loop without slowing everything down.
 
